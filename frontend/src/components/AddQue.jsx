@@ -54,7 +54,7 @@ const AddQue = () => {
         marks: Number(form.marks),
         options: showOptions ? form.options.filter(opt => opt.trim()) : [],
       };
-      const res = await axios.post('http://localhost:5000/school/question/createquestion', payload, { withCredentials: true });
+      const res = await axios.post('https://papper-generator.onrender.com/school/question/createquestion', payload, { withCredentials: true });
       setSuccess('Question submitted successfully!');
       setForm(initialState);
       setShowOptions(false);

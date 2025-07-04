@@ -35,7 +35,7 @@ const GeneratePapper = () => {
     try {
       const teacherId = localStorage.getItem('teacherId');
       if (!teacherId) throw new Error('Teacher ID not found. Please log in again.');
-      const res = await fetch(`http://localhost:5000/school/question/teacher/${teacherId}`, {
+      const res = await fetch(`https://papper-generator.onrender.com/school/question/teacher/${teacherId}`, {
         method: 'GET',
         credentials: 'include',
       });

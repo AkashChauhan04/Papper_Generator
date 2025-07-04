@@ -18,7 +18,7 @@ const ShowQue = () => {
         // Get teacher id from localStorage (set after login)
         const teacherId = localStorage.getItem('teacherId');
         if (!teacherId) throw new Error('Teacher ID not found. Please log in again.');
-        const res = await axios.get(`http://localhost:5000/school/question/teacher/${teacherId}`, {
+        const res = await axios.get(`https://papper-generator.onrender.com/school/question/teacher/${teacherId}`, {
           withCredentials: true,
         });
         setQuestions(res.data);
@@ -52,7 +52,7 @@ const ShowQue = () => {
     setEditLoading(true);
     setEditError('');
     try {
-      const res = await axios.put(`http://localhost:5000/school/question/update/${editingId}`,
+      const res = await axios.put(`https://papper-generator.onrender.com/school/question/update/${editingId}`,
         {
           ...editForm,
           class: Number(editForm.class),
