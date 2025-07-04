@@ -18,8 +18,16 @@ const __dirname = dirname(__filename);
 
 // Middleware
 app.use(cors({
-  origin: 'https://papper-generator.onrender.com', // change to your frontend URL
-  credentials: true
+  origin: [
+    'https://papper-generator.onrender.com',
+    'http://localhost:5173',
+    'https://www.papper-generator.onrender.com',
+    'capacitor://localhost', // for mobile apps
+    'http://localhost', // for mobile browser
+    'http://127.0.0.1',
+    'https://127.0.0.1'
+  ],
+  credentials: true,
 }));
 app.use(express.json());
 app.use(cookieParser());
