@@ -35,8 +35,8 @@ exports.login = async (req, res) => {
     const token = jwt.sign({ id: teacher._id }, process.env.JWT_SECRET, { expiresIn: '1d' });
     res.cookie('token', token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'strict',
+      secure: true, // always true for cross-device/mobile
+      sameSite: 'None', // allow cross-site cookies
       maxAge: 24 * 60 * 60 * 1000 // 1 day
     }).json({ message: 'Login successful', teacher: { id: teacher._id, name: teacher.name, email: teacher.email } });
   } catch (error) {
